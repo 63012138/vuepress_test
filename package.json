@@ -20,6 +20,7 @@
   "dependencies": {
     "core-js": "^2.6.12",
     "element-ui": "^2.15.13",
+    "gitalk": "^1.8.0",
     "vuepress-plugin-cat": "^1.0.3"
   }
 }
