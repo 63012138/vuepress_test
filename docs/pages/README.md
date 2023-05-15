@@ -1,5 +1,6 @@
 ---
 switchValue: true # 声明变量value
+comment: true
 ---
 
 # 文档说明

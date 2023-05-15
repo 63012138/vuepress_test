@@ -28,7 +28,22 @@ module.exports = {
   //     },
   //   },
   // },
-  plugins: ['vuepress-plugin-cat'],
+  plugins: [
+    'vuepress-plugin-cat',
+    [
+      require('../../plugins/vuepress-comment'),
+      {
+        options: {
+          clientID: '2918ebb51485022458dd',
+          clientSecret: '0124316d849fe8dc7c0ad222831aec69e1c7626e',
+          repo: 'vuepress_test',
+          owner: '63012138',
+          admin: ['63012138'],
+          distractionFreeMode: false,
+        },
+      },
+    ],
+  ],
   themeConfig: {
     sidebarDepth: 2, // 将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
