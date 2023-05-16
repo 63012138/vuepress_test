@@ -1,3 +1,5 @@
+delete require.cache[require.resolve('../../plugins/vuepress-comment')];
+
 module.exports = {
   title: 'VUEPRESS',
   description: '初尝vuepress',
@@ -11,25 +13,15 @@ module.exports = {
     lineNumbers: true, // 代码块显示行号
   },
   configureWebpack: {
-    devServer: {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-    },
+    // devServer: {
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*',
+    //   },
+    // },
   },
-  // devServer: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://localhost:3000', // 目标服务器地址
-  //       changeOrigin: true, // 是否跨域
-  //       pathRewrite: {
-  //         '^/api': '', // 重写路径，将/api替换为空
-  //       },
-  //     },
-  //   },
-  // },
   plugins: [
     'vuepress-plugin-cat',
+    require('../../plugins/vuepress-tabs'),
     [
       require('../../plugins/vuepress-comment'),
       {

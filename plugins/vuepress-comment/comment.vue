@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     reRender(to = {}, from = {}) {
-      console.log('reRender comment');
       const frontmatter = {
         to,
         from,
