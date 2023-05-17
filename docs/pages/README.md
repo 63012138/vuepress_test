@@ -13,12 +13,12 @@ comment: true
 
 <el-switch v-model="$page.switchValue" />
 
-::: tabs
-+++ js
-这是一个提示
-+++
-
-+++ ts
-这是一个提示
-+++
+:::: tabs
+::: tabpane
+这是一个提示 213
 :::
+
+::: tabpane
+这是一个提示 123
+:::
+::::
