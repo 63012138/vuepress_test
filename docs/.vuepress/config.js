@@ -1,4 +1,4 @@
-delete require.cache[require.resolve('../../plugins/vuepress-comment')];
+delete require.cache[require.resolve('../../plugins/vuepress-tabs')];
 
 module.exports = {
   title: 'VUEPRESS',

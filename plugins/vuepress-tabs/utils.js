@@ -1,8 +1,8 @@
 const fs = require('fs');
-const container = require('markdown-it-container');
+const Container = require('markdown-it-container');
 function tabs(md) {
   // console.log(md);
-  md.use(container, 'tabs', {
+  md.use(Container, 'tabs', {
     render: (tokens, idx) => {
       const token = tokens[idx];
       const content = token.info.trim().slice('tabs'.length).trim();
@@ -27,14 +27,22 @@ function tabs(md) {
 }
 
 function tab(md) {
-  md.use(container, 'tabpane', {
-    render: (tokens, idx) => {
+  md.use(Container, 'tabpane', {
+    // 这里添加了 label 属性的解析
+    // 可以解析 label="xxx" 这样的语法
+    validate: function (params) {
+      return params.trim().match(/^tabpane\s*(.*)$/);
+    },
+    render: function (tokens, idx) {
       const token = tokens[idx];
-      const content = token.info.trim().slice('tabpane'.length).trim();
-
+      const info = token.info.trim().match(/^tabpane\s+(.*)$/)[1];
+      const label = info.match(/label=["']([^'"]*)['"]/);
+      const attrs = label ? `label="${label[1]}"` : '';
       if (token.nesting === 1) {
-        return `<el-tab-pane label="123">${content}`;
+        // ...
+        return `<el-tab-pane ${attrs}>`;
       } else {
+        // ...
         return `</el-tab-pane>`;
       }
     },

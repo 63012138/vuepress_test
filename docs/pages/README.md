@@ -14,11 +14,11 @@ comment: true
 <el-switch v-model="$page.switchValue" />
 
 :::: tabs
-::: tabpane
-这是一个提示 213
+::: tabpane label="Tab 1"
+This is the content of tab 1.
 :::
 
-::: tabpane
-这是一个提示 123
+::: tabpane label="Tab 2"
+This is the content of tab 2.
 :::
 ::::
