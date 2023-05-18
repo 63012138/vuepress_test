@@ -1,49 +1,34 @@
-const fs = require('fs');
-const Container = require('markdown-it-container');
+const container = require('markdown-it-container');
 function tabs(md) {
-  // console.log(md);
-  md.use(Container, 'tabs', {
-    render: (tokens, idx) => {
+  md.use(container, 'tabs', {
+    render(tokens, idx) {
       const token = tokens[idx];
-      const content = token.info.trim().slice('tabs'.length).trim();
-
-      // const reg = /\+\+\+ (?<label>.*?)\n*(?<content>.*?)\n\+\+\+/;
-      // const greg = /\+\+\+ (?<label>.*?)\n*(?<content>.*?)\n\+\+\+/g;
-      // const arr = content.match(greg);
-      // const text = arr ? '' : content;
-      // arr &&
-      //   arr.forEach((i) => {
-      //     const res = i.match(reg);
-      //     console.log(res);
-      //     text += tab({ label: res[1], content: res[2] });
-      //   });
+      const reg = /^tabs\s+type="([^"]+)"/;
+      const match = token.info.trim().match(reg);
+      const type = match ? match[1] : 'border-card';
       if (token.nesting === 1) {
-        return `<el-tabs>${content}`;
+        return `<el-tabs type="${type}" class="tabs">\n`;
       } else {
-        return `</el-tabs>`;
+        return `</el-tabs>\n`;
       }
     },
   });
 }
 
-function tab(md) {
-  md.use(Container, 'tabpane', {
-    // 这里添加了 label 属性的解析
-    // 可以解析 label="xxx" 这样的语法
-    validate: function (params) {
-      return params.trim().match(/^tabpane\s*(.*)$/);
-    },
-    render: function (tokens, idx) {
+function tabpane(md) {
+  md.use(container, 'tabpane', {
+    // validate(params) {
+    //   return params.trim().match(/^tabpane\s+label="([^"]+)"/);
+    // },
+    render(tokens, idx) {
+      const reg = /^tabpane\s+label="([^"]+)"/;
       const token = tokens[idx];
-      const info = token.info.trim().match(/^tabpane\s+(.*)$/)[1];
-      const label = info.match(/label=["']([^'"]*)['"]/);
-      const attrs = label ? `label="${label[1]}"` : '';
+      const match = token.info.trim().match(reg);
+      const label = match ? match[1] : 'unnamed';
       if (token.nesting === 1) {
-        // ...
-        return `<el-tab-pane ${attrs}>`;
+        return `<el-tab-pane class="tabpane" label="${label}">\n`;
       } else {
-        // ...
-        return `</el-tab-pane>`;
+        return `</el-tab-pane>\n`;
       }
     },
   });
@@ -51,5 +36,5 @@ function tab(md) {
 
 module.exports = {
   tabs,
-  tab,
+  tabpane,
 };

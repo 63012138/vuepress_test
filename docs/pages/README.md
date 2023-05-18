@@ -13,12 +13,37 @@ comment: true
 
 <el-switch v-model="$page.switchValue" />
 
+<hr>
+
 :::: tabs
 ::: tabpane label="Tab 1"
-This is the content of tab 1.
+
+```js
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+console.log(123);
+```
+
 :::
 
 ::: tabpane label="Tab 2"
-This is the content of tab 2.
+
+```css
+.class {
+  color: pink;
+}
+```
+
 :::
 ::::
