@@ -15,7 +15,7 @@ comment: true
 
 <hr>
 
-:::: tabs
+:::: tabs options={'tab-position':'left'}
 ::: tabpane label="Tab 1"
 
 ```js
