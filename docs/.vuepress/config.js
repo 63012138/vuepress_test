@@ -43,6 +43,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       { text: '笔记', link: '/pages/' },
+      { text: '分享', link: '/vuepress_share/' },
       { text: '面试题', link: '/questions/' },
       // 下拉列表
       {
@@ -75,6 +76,7 @@ module.exports = {
         },
       ],
       '/questions/': 'auto',
+      '/vuepress_share/': 'auto',
     },
   },
 };
