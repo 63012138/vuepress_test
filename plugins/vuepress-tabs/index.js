@@ -1,13 +1,9 @@
 const { tabs, tabpane } = require('./utils');
-
-const importStr = `import {Tabs, TabPane} from 'element-ui';
-                   export default({Vue}) => {
-                      Vue.use(Tabs);
-                      Vue.use(TabPane);
-                   }`;
+const path = require('path');
 
 module.exports = {
-  enhanceAppFiles: importStr,
+  name: 'vuepress-tabs',
+  enhanceAppFiles: path.resolve(__dirname, 'tabs.js'),
   extendMarkdown: (md) => {
     tabs(md);
     tabpane(md);

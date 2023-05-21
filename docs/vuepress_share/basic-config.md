@@ -1,3 +1,12 @@
+# 3. 基本配置
+
+VuePress 的基本配置包括`config.js`、Front Matter、热更新等内容。
+
+## 1. `config.js`配置文件
+
+`config.js`是 VuePress 的配置文件，用于配置 VuePress 的各种选项和参数。该文件通常位于项目根目录下的`.vuepress`目录中，如果该目录不存在，则需要手动创建。以下是一个简单的`config.js`配置示例：
+
+```javascript
 module.exports = {
   title: 'VUEPRESS', // 站点标题
   description: '初尝vuepress', // 站点描述
@@ -78,3 +87,30 @@ module.exports = {
     },
   },
 };
+```
+
+## 2. Front Matter
+
+Front Matter 是一种位于 Markdown 文件头部的元数据格式，用于设置该页面的一些属性。在 VuePress 中，可以使用 Front Matter 来设置页面的标题、描述、分类、标签等属性。以下是一个简单的 Front Matter 示例：
+
+```css
+---
+title: MyTitle # 页面标题
+lang: zh-CN # 默认en-US
+description: null # 描述
+# layout: Layout #页面布局
+navbar: true #是否开启导航栏
+sidebar: auto # 自动生成侧边栏
+sidebarDepth: 2 # 侧边栏深度
+search: true #是否开启搜索框
+tags: #配置搜索tags
+  - 问题
+  - 测试
+prev: true # 上一页 true为默认 false禁用 也可指定地址
+next: false # 下一页
+---
+```
+
+::: tip
+front matter 的配置会覆盖`config.js`中的配置
+:::
