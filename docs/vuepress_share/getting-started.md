@@ -71,7 +71,7 @@ VuePress 需要 [Node.js](https://nodejs.org/en/) >= 8.6
 
 VuePress 遵循 **“约定优于配置”** 的原则，推荐的目录结构如下：
 
-::: vue
+```
 .
 ├── docs
 │   ├── .vuepress _(**可选的**)_ // 用于存放全局的配置、组件、静态资源等。
@@ -94,7 +94,7 @@ VuePress 遵循 **“约定优于配置”** 的原则，推荐的目录结构�
 │   └── config.md
 │ 
 └── package.json
-:::
+```
 
 ::: warning 注意
 请留意目录名的大写。
