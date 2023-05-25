@@ -53,8 +53,8 @@ VuePress 需要 [Node.js](https://nodejs.org/en/) >= 8.6
    ```json
    {
      "scripts": {
-       "docs:dev": "vuepress dev docs",
-       "docs:build": "vuepress build docs"
+       "docs": "vuepress dev docs",
+       "build": "vuepress build docs --dest dist"
      }
    }
    ```

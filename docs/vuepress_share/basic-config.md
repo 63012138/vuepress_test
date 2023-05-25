@@ -1,6 +1,6 @@
 # 3. 基本配置
 
-VuePress 的基本配置包括`config.js`、Front Matter、热更新等内容。
+VuePress 的基本配置包括`config.js`、Front Matter 等内容。
 
 ## 1. `config.js`配置文件
 
